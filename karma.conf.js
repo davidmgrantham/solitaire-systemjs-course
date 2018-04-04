@@ -25,7 +25,22 @@ module.exports = function (config) {
 
     frameworks: ["jasmine"],
 
-    browsers: ["Chrome", "Firefox"],
+    browsers: ["ChromeHeadless", "Firefox"],
+
+    singleRun: true,
+    customLaunchers: {
+      ChromeHeadless: {
+        base: 'Chrome',
+        flags: [
+          '--headless',
+          '--disable-gpu',
+          '--disable-translate',
+          '--disable-extensions',
+          '--no-sandbox',  // Added to fix an issue where of Failed to connect to chrome browser
+         '--remote-debugging-port=9222',
+        ],
+      }
+    },
 
     plugins: [
       "karma-chrome-launcher",
