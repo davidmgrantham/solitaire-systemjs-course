@@ -42,6 +42,8 @@ module.exports = function (config) {
       }
     },
 
+    reporters: ['progress', 'junit'],
+
     plugins: [
       "karma-chrome-launcher",
       "karma-firefox-launcher",
@@ -52,8 +54,8 @@ module.exports = function (config) {
     ],
 
     junitReporter: {
-      outputFile: "test_out/unit.xml",
-      suite: "unit"
+      outputFile: "test-results.xml",
+      outputDir: "test-results"
     }
 
   });
